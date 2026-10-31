@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+    /* Recovered from auth pages, the planner source listing and chart colours. */
+    --hmi-ink: #0f172a;
+    --hmi-purple: #581c87;
+    --hmi-primary: #9333ea;
+    --hmi-accent: #db2777;
+    --hmi-line: rgba(255, 255, 255, 0.1);
+    --hmi-muted: #9ca3af;
+    --hmi-background: linear-gradient(135deg, var(--hmi-ink), var(--hmi-purple), var(--hmi-ink));
+    --hmi-panel: rgba(255, 255, 255, 0.05);
+    --hmi-shadow: 0 12px 32px rgba(0, 0, 0, 0.16);
+  }
+
+  html {
+    min-height: 100%;
+    scroll-behavior: smooth;
+    scrollbar-color: #6b21a8 var(--hmi-ink);
+  }
+
+  body {
+    min-height: 100vh;
+    background: var(--hmi-background);
+    color: #f3f4f6;
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      'Segoe UI', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection { color: #fff; background: #7e22ce; }
+  :focus-visible { outline: 2px solid #d8b4fe; outline-offset: 3px; }
+
+  button:not(:disabled), a, [role='button'] {
+    -webkit-tap-highlight-color: transparent;
+    transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+    transition-duration: 180ms;
+    transition-timing-function: ease-out;
+  }
+
+  input, select, textarea { color-scheme: dark; }
+  input::placeholder, textarea::placeholder { color: var(--hmi-muted); opacity: 1; }
+  input[type='checkbox'], input[type='radio'] { accent-color: var(--hmi-primary); }
+  select option { background: var(--hmi-ink); color: #f3f4f6; }
+
+  ::-webkit-scrollbar { width: 9px; height: 9px; }
+  ::-webkit-scrollbar-track { background: var(--hmi-ink); }
+  ::-webkit-scrollbar-thumb {
+    border: 2px solid var(--hmi-ink);
+    border-radius: 999px;
+    background: #6b21a8;
+  }
+  ::-webkit-scrollbar-thumb:hover { background: #9333ea; }
+}
+
+@layer components {
+  .hmi-page {
+    min-height: 100vh;
+    background: var(--hmi-background);
+    color: #f3f4f6;
+  }
+
+  /* Explicit surfaces let utilities control semantic status borders and states. */
+  .hmi-surface, .hmi-surface-soft, .hmi-auth-panel {
+    border: 1px solid var(--hmi-line);
+    border-radius: 0.75rem;
+    background: var(--hmi-panel);
+    box-shadow: var(--hmi-shadow);
+  }
+  .hmi-auth-panel { backdrop-filter: blur(12px); }
+
+  .hmi-eyebrow {
+    color: #c084fc;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  .hmi-gradient-text {
+    background: linear-gradient(90deg, #d8b4fe, #f9a8d4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .hmi-input {
+    min-width: 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+  }
+  .hmi-input:focus { border-color: #a855f7; }
+  .hmi-input:disabled { opacity: 0.5; }
+  .hmi-input::file-selector-button { cursor: pointer; }
+}
+
+/* Recharts axis titles otherwise default to black on the dark cards. */
+.recharts-cartesian-axis-tick-value, .recharts-label, .recharts-legend-item-text {
+  fill: #9ca3af;
+  color: #9ca3af;
+}
+.recharts-tooltip-wrapper .recharts-default-tooltip { color: #f3f4f6; }
+
+.maplibregl-map .maplibregl-ctrl-group {
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  background: #1e293b;
+  box-shadow: var(--hmi-shadow);
+}
+.maplibregl-ctrl-group button + button { border-color: var(--hmi-line); }
+.maplibregl-ctrl-group button:hover { background-color: rgba(147, 51, 234, 0.25); }
+.maplibregl-ctrl button .maplibregl-ctrl-icon { filter: invert(1); }
+/* Popups retain the light background expected by their existing dark text. */
+.maplibregl-popup-content { color-scheme: light; color: #111827; }
+.maplibregl-popup-close-button { color: #111827; }
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideIn {
+  from { transform: translateY(10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.fade-in { animation: fadeIn 0.3s ease-in-out; }
+.slide-in { animation: slideIn 0.3s ease-in-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

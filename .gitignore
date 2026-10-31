@@ -1,0 +1,50 @@
+# Local configuration and credentials (examples are safe to commit)
+.env
+.env.*
+!.env.example
+*.env.local
+*.env.local-backup
+*.pem
+*.key
+
+# Dependencies, compiled output and caches
+node_modules/
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.pytest-tmp*/
+.tmp/
+.next/
+.next-*/
+*.tsbuildinfo
+coverage/
+dist/
+
+# Local datasets and catalogs; import licensed data separately
+/backend/data/
+*.sqlite3
+*.sqlite3-*
+*.db
+/*.zip
+/*.csv
+*.gpkg
+*.parquet
+
+# Private backups, ad-hoc investigations and generated verification artifacts
+.implementation-backup/
+.verification-tools/
+.design-review/
+tools/verification/artifacts/
+*.log
+/backend/app/logs/
+/project-code-review.txt
+project_files.txt
+relevant_paths.txt
+
+# Editor and operating-system state
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

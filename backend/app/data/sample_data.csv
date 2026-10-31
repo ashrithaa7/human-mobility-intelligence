@@ -1,0 +1,12 @@
+latitude,longitude,timestamp,location_name,activity_count,data_source
+17.3850,78.4867,2024-01-15T08:00:00Z,Downtown Business District,1450,synthetic
+17.3850,78.4867,2024-01-15T09:00:00Z,Downtown Business District,1620,synthetic
+17.3850,78.4867,2024-01-15T12:00:00Z,Downtown Business District,2100,synthetic
+17.3850,78.4867,2024-01-15T14:30:00Z,Downtown Business District,1850,synthetic
+17.4436,78.4399,2024-01-15T09:00:00Z,Tech Park Zone,2200,synthetic
+17.4436,78.4399,2024-01-15T10:00:00Z,Tech Park Zone,2150,synthetic
+17.4436,78.4399,2024-01-15T14:00:00Z,Tech Park Zone,2350,synthetic
+17.3630,78.5142,2024-01-15T08:30:00Z,Residential Area North,950,synthetic
+17.3630,78.5142,2024-01-15T17:00:00Z,Residential Area North,1100,synthetic
+17.3467,78.5050,2024-01-15T11:00:00Z,Commercial Hub South,1200,synthetic
+17.4469,78.5718,2024-01-15T09:00:00Z,Educational District,850,synthetic

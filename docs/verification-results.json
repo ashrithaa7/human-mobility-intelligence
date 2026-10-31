@@ -1,0 +1,94 @@
+{
+  "date": "2026-10-31",
+  "backend": {
+    "tests": 94,
+    "passed": true
+  },
+  "frontend": {
+    "typeCheck": "passed",
+    "productionBuild": "passed",
+    "staticGenerationUnits": 33
+  },
+  "browser": {
+    "checks": [
+      {
+        "name": "Real active-source street map, rendered cluster features and click-to-zoom, heatmap toggle, area search/focus, independent list scroll, mobile width",
+        "renderedMap": {
+          "zoom": 7.2898638320154685,
+          "source": 30,
+          "rendered": 17
+        },
+        "dimensions": {
+          "height": 430,
+          "scroll": 140104,
+          "overflow": "auto"
+        },
+        "tileFailures": []
+      },
+      "Request submission, pending reload without duplicate form, rejected reapplication, approved-role redirect",
+      "Administrator can access planner tools",
+      "Public role denied admin and planner pages"
+    ],
+    "errors": []
+  },
+  "databasePolicies": {
+    "checks": [
+      "Legacy profile backfill; signup ignores role metadata; nonrecursive self-only RLS; direct escalation denied",
+      "Duplicate submission and cross-account reads denied; public cannot approve; admin approval grants role atomically with audit metadata",
+      "Rejection preserves history and permits reapplication; inactive accounts blocked; failed approval leaves request unchanged",
+      "Migration reruns without resetting existing roles"
+    ],
+    "lastRunDate": "2026-10-30"
+  },
+  "liveDatabase": {
+    "passed": true,
+    "checks": [
+      "Live signup trigger, public-role default, self-only RLS and denied role escalation",
+      "Live submission, duplicate prevention, non-admin review denial, atomic admin approval and audit records",
+      "All temporary accounts, requests and audit records rolled back; original accounts preserved"
+    ],
+    "lastRunDate": "2026-10-30"
+  },
+  "repository": {
+    "includedFilesChecked": 170,
+    "credentialFindings": 0,
+    "excludedLocalState": true,
+    "pushed": false,
+    "pushMethod": "Owner requested local Git commands"
+  },
+  "planningBrowser": {
+    "passed": true,
+    "renderedPlanningFeatures": 451,
+    "checks": [
+      "planner login destination",
+      "generic dashboard role redirect",
+      "six planning objectives",
+      "real-data assessment rendering",
+      "saved brief and Markdown export",
+      "mobile width",
+      "stale results blocked after edits",
+      "public planner intent leads to access request"
+    ],
+    "errors": [],
+    "scope": "Auth and planning HTTP intercepted; real prepared-data metrics; backend role and persistence enforced in separate tests."
+  },
+  "planningData": {
+    "layers": 9,
+    "features": 317656,
+    "exactDuplicatesRemoved": 75,
+    "invalidOutputGeometries": 0,
+    "qualityReport": "planning-data-validation.json"
+  },
+  "livePlannerSetup": {
+    "accountRole": "planner",
+    "isActive": true,
+    "ownerAuthorised": true,
+    "auditRecorded": true,
+    "otherAccountsUnchanged": true
+  },
+  "liveHealth": {
+    "readyStatus": 200,
+    "loginStatus": 200,
+    "unauthenticatedPlanningStatus": 401
+  }
+}

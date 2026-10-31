@@ -1,0 +1,4 @@
+-- No real or default privileged accounts are seeded.
+-- Register an intended administrator through Supabase Auth, then follow
+-- docs/AUTHENTICATION.md to promote that exact identity in the SQL editor.
+-- Import licensed mobility datasets through the administrator UI.
